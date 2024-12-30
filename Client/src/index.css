@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(135deg, #fdf3f6 0%, #f1e3e8 100%);
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("./images/background.svg");
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.border-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Ensure it covers the viewport height */
+  background-color: #fff; /* Background color of your content */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+  overflow: hidden; /* Ensure child elements are contained */
+}
+
+
+
+.open-sans-google {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.border-wrapper::before,
+.border-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px; /* Adjust based on your design */
+  background: url('./images/side_border.png') repeat-y center center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.border-wrapper::before {
+  left: 0;
+  transform: rotate(90deg); /* Rotate left border 90 degrees */
+}
+
+.border-wrapper::after {
+  right: 0;
+  transform: rotate(-90deg); /* Rotate right border -90 degrees */
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 20px; /* Adjust based on your design */
+}
+
+/* Additional effects */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.border-wrapper::before,
+.border-wrapper::after {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+.pattern{
+  width: 100%;
+  height: 100%;
+  background-image:  url("./images/pattern.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: repeat;
+}
+
+.banner{
+  width: 100%;
+  background-image:  url("./images/banner.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.background{
+  background-image: url("./images/mainbg.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.blob{
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/blob.svg");
+  background-size: cover;
+}
+
+
+.gradient-text {
+  background: linear-gradient(90deg, #a8c0ff, #fbc2eb, #fde2e4, #ffdde1, #c6ffdd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: gradient-animation 5s infinite;
+}
+
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* Ensure the loading container covers the entire screen */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* High z-index to overlay other content */
+}
+
+/* Background overlay with blur and reduced opacity */
+.loading-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* White background with reduced opacity */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+/* Rounded box with white background for loading animation */
+
+
+/* Centered loading animation */
+.loading-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 300px;
+  max-width: 300px;
+  border-radius: 50px;
+  border: 1 px solid black;
+  background: gray;
+  z-index: 10;
+}
